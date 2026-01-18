@@ -18,3 +18,8 @@ def train_random_forest(X_train, y_train, n_estimators=200, min_samples_leaf=5,
 def save_model(model, path="../models/best_model.pkl"):
     # Save trained model to disk for future use
     joblib.dump(model, path)
+    print(f"Model saved to {path}")
+
+def load_model(path="../models/best_model.pkl"):
+    model = joblib.load(path)
+    return model

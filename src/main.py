@@ -1,7 +1,7 @@
 import os
 from preprocessing import load_data, oversample_smote, split_features_target, scale_features
 from features import feature_engineering
-from train import train_random_forest
+from train import train_random_forest, save_model
 from evaluate import evaluate_model    
 from sklearn.model_selection import train_test_split
 
@@ -37,6 +37,13 @@ def main():
     model = train_random_forest(X_train_scaled, y_train)
 
     evaluate_model(model, X_test_scaled, y_test)
+
+    models_dir = os.path.join(project_root, "models")
+    os.makedirs(models_dir, exist_ok=True)
+
+    # Save the trained model
+    save_model(model, os.path.join(models_dir, "best_model.pkl"))
+    print("Model saved at:", os.path.join(models_dir, "best_model.pkl"))
 
 if __name__ == "__main__":
     main()
