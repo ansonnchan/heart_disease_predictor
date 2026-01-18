@@ -1,0 +1,38 @@
+Results:
+
+After running the machine pipeline, our evaluation metrics produced:
+ROC-AUC: 0.8916643021921764
+Accuracy: 0.8634177621032382
+
+ROC-AUC measures how well a model can distinguish between the positive 
+and negative classes across all possible thresholds.A high ROC-AUC 
+(close to 1.0) means the model ranks positive cases higher than negative ones
+very effectively, while 0.5 means it performs no better than random guessing.
+
+Hence, 0.8917 is a very good result though it should be noted that in our Jupyter notebook
+testing, we got 0.9368939653694497. This difference is significant and can be attributed
+to a varity of reasons; the most probable cause is we used a randomizer for our train-test-split.
+
+Accuracy is at 86% which is good but should be treated with caution as our data is very class-imbalanced.
+80% of patients in the dataset don't have heart disease, which could cause slight biases. 
+
+
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.78      1.00      0.88      1545
+           1       1.00      0.73      0.84      1574
+
+    accuracy                           0.86      3119
+   macro avg       0.89      0.86      0.86      3119
+weighted avg       0.89      0.86      0.86      3119
+
+Above, is our classification report. 
+
+Support: The number of actual samples in the test set for each class.
+
+Precision: The proportion of predicted positives that are actually correct.
+
+Recall: The proportion of actual positives that the model correctly identified.
+
+F1-score: The harmonic mean of precision and recall, balancing both metrics.
